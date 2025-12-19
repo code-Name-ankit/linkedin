@@ -1,0 +1,129 @@
+/* ================= ROOT ================= */
+.container {
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= NAV BAR ================= */
+.navBar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(45deg, #0a66c2, #004182);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= DESKTOP MENU ================= */
+.desktopMenu {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.profileLink {
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+}
+
+.profileLink:hover {
+  color: #0a66c2;
+}
+
+/* ================= BUTTONS ================= */
+.buttonJoin {
+  padding: 0.5rem 1.4rem;
+  background: #0a66c2;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.logoutButton {
+  padding: 0.5rem 1.2rem;
+  background: #f029a7;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ================= MOBILE MENU ================= */
+/* ================= MOBILE MENU (CENTERED) ================= */
+.mobileMenu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  width: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👈 CENTER ITEMS */
+  gap: 0.8rem;
+
+  z-index: 9999;
+}
+
+/* Menu options */
+.mobileMenu p {
+  width: 100%;
+  text-align: center;    
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  /* transition: background 0.2s ease; */
+}
+
+.mobileMenu p:hover {
+  background: #f1f5f9;
+}
+
+/* Logout red */
+.logoutMobile {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .desktopMenu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+}

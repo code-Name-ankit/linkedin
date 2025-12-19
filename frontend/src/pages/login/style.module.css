@@ -1,0 +1,152 @@
+/* ================== ROOT ================== */
+.container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  font-family: "Poppins", sans-serif;
+  padding: 1rem;
+}
+
+/* ================== CARD ================== */
+.cardContainer {
+  width: 85vw;
+  max-width: 1000px;
+  min-height: 520px;
+  display: flex;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ================== LEFT ================== */
+.cardContainer_left {
+  flex: 0.6;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardLeft_heading {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(45deg, #000, #7a7a7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* ================== FORM ================== */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 420px;
+  margin: 1.5rem auto 0;
+}
+
+.inputRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.inputFiled {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #d0d7de;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.inputFiled:focus {
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.15);
+}
+
+/* ================== BUTTON ================== */
+.buttonWithOutline {
+  padding: 0.9rem 1.4rem;
+  background: #0a66c2;
+  color: white;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.buttonWithOutline:hover {
+  background: #004182;
+  transform: translateY(-2px);
+}
+
+/* ================== RIGHT ================== */
+.cardContainer_right {
+  flex: 0.4;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  color: white;
+  text-align: center;
+}
+
+.cardContainer_right p {
+  font-size: 1.2rem;
+}
+
+/* Switch Button */
+.switchButton {
+  padding: 0.7rem 1.6rem;
+  border-radius: 30px;
+  background: white;
+  color: #004182;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.switchButton:hover {
+  background: #e6f0ff;
+}
+
+/* ================== TABLET ================== */
+@media (max-width: 900px) {
+  .cardContainer {
+    flex-direction: column;
+  }
+
+  .cardContainer_left,
+  .cardContainer_right {
+    flex: 1;
+    width: 100%;
+  }
+
+  .cardContainer_right {
+    padding: 2rem;
+  }
+}
+
+/* ================== MOBILE ================== */
+@media (max-width: 480px) {
+  .cardLeft_heading {
+    font-size: 1.8rem;
+  }
+
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .buttonWithOutline {
+    font-size: 0.95rem;
+  }
+}

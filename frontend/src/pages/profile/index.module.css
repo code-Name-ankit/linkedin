@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+html,
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================== MAIN CONTAINER ================== */
+.container {
+  padding: 1.8rem;
+  background: linear-gradient(180deg, #f8fafc, #f4f6f8);
+  margin-top: 1.5rem;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* ================== BACKDROP ================== */
+.backDropContainer {
+  width: 100%;
+  height: 32vh;
+  background: url("https://static.vecteezy.com/system/resources/thumbnails/049/855/347/small/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-photo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 22px;
+}
+
+.backDropContainer > img {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4.5rem;
+  left: 2rem;
+  border: 4px solid #fff;
+  background: #fff;
+}
+
+.profileEditBtn > svg {
+  color: white;
+  background: #000;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.profileEditBtn {
+  position: absolute;
+  bottom: -4.5rem;
+  left: calc(2rem + 9rem - 2.1rem);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+.profileEditBtn svg {
+  width: 18px;
+  height: 18px;
+  color: #ffffff;
+}
+.profileEditBtn:hover {
+  transform: scale(1.12);
+  background: linear-gradient(135deg, #004182, #003366);
+}
+
+/* ================== PROFILE DETAILS ================== */
+.profileContainer_details {
+  padding-top: 6.2rem;
+}
+
+.profileContainer_details h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.profileContainer_details p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* ================== BUTTONS ================== */
+.connectBtn,
+.connectedButton {
+  padding: 0.45rem 1.2rem;
+  border-radius: 22px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.connectBtn {
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: #fff;
+  border: none;
+}
+
+.connectBtn:hover {
+  opacity: 0.92;
+}
+
+.connectedButton {
+  background: #f8fafc;
+  color: #0a66c2;
+  border: 1px solid #c7d7ee;
+}
+
+/* ================== FLEX LAYOUT ================== */
+.profileFlex {
+  display: flex;
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.leftSection {
+  flex: 0.75;
+}
+
+.rightSection {
+  flex: 0.25;
+}
+
+/* ================== WORK HISTORY ================== */
+.workHistory {
+  background: #fff;
+  padding: 1.3rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.workHistory h4 {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.4rem;
+}
+
+.workHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.workHistoryCard {
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: all 0.25s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.workHistoryCard:hover {
+  background: #eef4fb;
+  border-color: #c6dcf5;
+}
+
+.workHistoryCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.workHistoryCard p:first-child {
+  font-weight: 600;
+  color: #0a66c2;
+}
+
+.workHistoryEmpty {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* ================== POSTS SECTION ================== */
+.postsSection {
+  background: #fff;
+  padding: 1.4rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.postsSection h4 {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+/* ================== POST CARD ================== */
+.postCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin-bottom: 1.4rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s ease;
+}
+
+.postCard:hover {
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ================== POST HEADER ================== */
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.postAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.postHeader p {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #020617;
+}
+
+.postHeader span {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+/* ================== POST BODY ================== */
+.postCard > p {
+  font-size: 0.96rem;
+  color: #1e293b;
+  margin: 0.8rem 0;
+  line-height: 1.55;
+}
+
+/* ================== POST IMAGE ================== */
+.postImage {
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  background: #f1f5f9;
+  border-radius: 14px;
+  margin-top: 0.7rem;
+  border: 1px solid #e2e8f0;
+}
+
+.postActions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.postActions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.postActions button:hover {
+  opacity: 0.7;
+}
+
+.nameEdit {
+  font-size: 1.5rem;
+  font: bold;
+  border: none;
+  background: #f8fafc;
+  outline: none;
+}
+
+.nameEdit:focus {
+  border: none;
+}
+
+.addWorkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #0a66c2; /* LinkedIn blue */
+  background-color: #ffffff;
+
+  border: 1.5px solid #0a66c2;
+  border-radius: 999px; /* pill shape */
+  margin-top: 1.2em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.addWorkButton:hover {
+  background-color: rgba(10, 102, 194, 0.08);
+}
+
+/* Active click */
+.addWorkButton:active {
+  transform: scale(0.97);
+}
+
+/* Focus (keyboard accessibility) */
+.addWorkButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.25);
+}
+
+.commentContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.allCommentsConatainer {
+  width: 40vw;
+  height: fit-content;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.inputFiled {
+  padding-inline: 1.3rem;
+  padding-block: 0.8rem;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid silver;
+  width: 100%;
+}
+
+/*  eafsdfragsfdzdfwrfsd */
+
+.profileEditBtn {
+  position: absolute;
+  bottom: 0;
+  left: 9.2em;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f2f5;
+  border: 0.2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ================== BIO TEXTAREA ================== */
+.bioTextarea {
+  width: 100%;
+  min-height: 90px;
+  max-height: 220px;
+  resize: vertical;
+  padding: 0.7rem 0.9rem;
+  margin-top: 0.6rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #1e293b;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/*  Placeholder */
+.bioTextarea::placeholder {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/*  Focus state */
+.bioTextarea:focus {
+  background: #ffffff;
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.15);
+}
+
+/* ===== POST USER INFO ===== */
+.postUserInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.postUserName {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.postUsername {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ===== POST ACTIONS ===== */
+.postActions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.postActions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.postActions button:hover {
+  opacity: 0.7;
+}
+
+/* ===== POST CONTENT ===== */
+.postContent {
+  margin-top: 0.6rem;
+}
+
+.postText {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #1e293b;
+}
+
+/* ===== EDIT MODE ===== */
+.editTextarea {
+  width: 100%;
+  min-height: 90px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.editActions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.editActions button {
+  padding: 0.35rem 0.9rem;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.editActions button:first-child {
+  background: #0a66c2;
+  color: white;
+}
+
+.editActions button:last-child {
+  background: #e5e7eb;
+}
+
+/* ================== CONNECTION / UPDATE PROFILE BUTTON ================== */
+.connectionButton {
+  align-self: flex-start;
+  margin-top: -0.6rem;
+  margin-left: 0.2rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  outline: none;
+  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35);
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.connectionButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(10, 102, 194, 0.45);
+  background: linear-gradient(135deg, #004182, #003366);
+}
+
+/* Active */
+.connectionButton:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.35);
+}
+
+
+.editBtn {
+  background-color: transparent;
+  border: 1px solid #0a66c2;
+  color: #0a66c2;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  border: 1px solid #e53935;
+  color: #e53935;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.saveBtn {
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.cancelBtn {
+  background-color: #e4e6eb;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.workHistoryCard input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  outline: none;
+}
+
+.editFworkHistoryCardorm input:focus {
+  border-color: #0a66c2;
+}
+
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 900px) {
+  .profileFlex {
+    flex-direction: column;
+  }
+
+  .rightSection {
+    width: 100%;
+  }
+  .backDropContainer {
+    height: 25vh;
+  }
+
+  .backDropContainer > img {
+    width: 7rem;
+    height: 7rem;
+    left: 1rem;
+  }
+
+  .postImage {
+    max-height: 300px;
+  }
+
+  .postAvatar {
+    width: 40px;
+    height: 40px;
+  }
+  .connectionButton {
+    font-size: 0.85rem;
+    padding: 0.45rem 1.2rem;
+  }
+  .backDropContainer {
+    height: 25vh;
+  }
+  .backDropContainer > img {
+    width: 7rem;
+    height: 7rem;
+    bottom: -3.5rem;
+    left: 1rem;
+  }
+
+  .profileEditBtn {
+    bottom: -3.5rem;
+    left: calc(1rem + 7rem - 2rem);
+    width: 34px;
+    height: 34px;
+  }
+
+  .profileEditBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,248 @@
+/* ================== MAIN CONTAINER ================== */
+.container {
+  padding: 1.5rem;
+  background: #f4f6f8;
+  margin-top: 1.2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ================== BACKDROP ================== */
+.backDropContainer {
+  width: 100%;
+  height: 32vh;
+  background: url("https://static.vecteezy.com/system/resources/thumbnails/049/855/347/small/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-photo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 20px;
+}
+
+.backDropContainer > img {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4.5rem;
+  left: 2rem;
+  border: 4px solid white;
+  background: white;
+}
+
+/* ================== PROFILE DETAILS ================== */
+.profileContainer_details {
+  padding-top: 6rem;
+}
+
+.profileContainer_details h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.profileContainer_details p {
+  margin: 0.25rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ================== BUTTONS ================== */
+.connectBtn,
+.connectedButton {
+  padding: 0.45rem 1.1rem;
+  border-radius: 22px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.connectBtn {
+  background: #0a66c2;
+  color: white;
+  border: none;
+}
+
+.connectBtn:hover {
+  background: #004182;
+}
+
+.connectedButton {
+  background: white;
+  color: #0a66c2;
+  border: 1.5px solid #0a66c2;
+}
+
+/* ================== LAYOUT FLEX ================== */
+.profileFlex {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 1.2rem;
+  align-items: flex-start;
+}
+
+.leftSection {
+  flex: 0.7;
+}
+
+.rightSection {
+  flex: 0.3;
+}
+
+/* ================== RECENT ACTIVITY ================== */
+.postCard {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card_profileContainer img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* ================== WORK HISTORY ================== */
+.workHistory {
+  background: white;
+  padding: 1.3rem;
+  border-radius: 18px;
+  margin-top: 1.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.workHistory h4 {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: #222;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 0.4rem;
+}
+
+.workHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.workHistoryCard {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: all 0.25s ease;
+}
+
+.workHistoryCard:hover {
+  background: #eef4fb;
+}
+
+.workHistoryCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.workHistoryCard p:first-child {
+  font-weight: 600;
+  color: #0a66c2;
+}
+
+.workHistoryEmpty {
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+}
+
+/* ================== DOWNLOAD ICON ================== */
+.downloadIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.downloadIcon:hover {
+  background: #eef4ff;
+  border-color: #0a66c2;
+}
+
+.downloadIcon svg {
+  width: 20px;
+  height: 20px;
+  color: #0a66c2;
+}
+
+/* ================== TABLET ================== */
+@media (max-width: 900px) {
+  .profileFlex {
+    flex-direction: column;
+  }
+
+  .leftSection,
+  .rightSection {
+    width: 100%;
+  }
+
+  .rightSection {
+    margin-top: 1rem;
+  }
+}
+
+/* ================== MOBILE ================== */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .backDropContainer {
+    height: 25vh;
+  }
+
+  .backDropContainer > img {
+    width: 7rem;
+    height: 7rem;
+    left: 1rem;
+    bottom: -3.5rem;
+  }
+
+  .profileContainer_details {
+    padding-top: 5rem;
+  }
+
+  .profileContainer_details h2 {
+    font-size: 1.3rem;
+  }
+
+  .connectBtn,
+  .connectedButton {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .postCard {
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,75 @@
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "123456",
+  "email":  "t@gmail.com",
+  "name": "New test"
+}
+### Expected Response:
+HTTP/1.1 400 Bad Request
+
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "email": "t@gmail.com",
+  "password": "123456"
+}
+
+###
+# POST http://localhost:4000/logout
+# Content-Type: application/json
+
+# {
+#   "userId": "6937c368ac00a73e35d129ca"
+# }
+
+
+###
+GET http://localhost:4000/get_user_and_profile?token=ebae530fd31e8d5adad1a09197a4c458fb7007ba4afc32c6ec5b54af37f4bec1
+Content-Type: application/json
+
+
+
+
+###
+POST http://localhost:4000/update_profile_data
+Content-Type: application/json
+
+{
+  "token": "7bac62f6b7ed75d930a505c2b0d5547f108007d3cb134a34f87646d37efb9b91",
+  "bio": "Hey I AM Rahul, i am from delhi.",
+  "currentPost": "CTOs",
+  "pastWorks": [
+    {
+      "company": "TechCorp",
+      "position": "Developer",
+      "years": 3
+    }
+  ],
+  "education": [
+    {
+      "school": "State University",
+      "degree": "Bachelor's Degree",
+      "fieldOfStudy": "Computer Science",
+      "startDate": "2015-08-01"
+    }
+  ]
+}
+
+
+###
+POST http://localhost:4000/post
+Content-Type: application/json
+
+{
+  "userId": "69380f143e38b44fbd7e5f15",
+  "body": "This is my first post created like update_profile_data API",
+  "media": "post-image.png",
+  "fileType": "image"
+
+}

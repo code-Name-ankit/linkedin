@@ -1,0 +1,109 @@
+/* ================= PAGE TITLE ================= */
+
+.discoverTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #111;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    sans-serif;
+}
+
+/* ================= CONTAINER ================= */
+
+.allUserProfile {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 720px;
+  width: 100%;
+}
+
+/* ================= USER CARD ================= */
+
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 16px;
+
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.userCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.userCard:active {
+  transform: scale(0.98);
+}
+
+/* ================= PROFILE IMAGE ================= */
+
+.userCard_image {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+/* ================= TEXT ================= */
+
+.userCard_text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.userUsername {
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .allUserProfile {
+    max-width: 100%;
+  }
+
+  .userCard {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .userCard_image {
+    width: 48px;
+    height: 48px;
+  }
+
+  .userName {
+    font-size: 0.9rem;
+  }
+
+  .userUsername {
+    font-size: 0.75rem;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+  .userCard {
+    border-radius: 14px;
+  }
+}
