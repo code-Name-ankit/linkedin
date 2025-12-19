@@ -641,3 +641,43 @@ body {
     height: 16px;
   }
 }
+
+
+/* ===== NAME + USERNAME FIX ===== */
+.nameBlock {
+  display: flex;
+  flex-direction: column; /* username upar, name niche */
+  gap: 0.25rem;
+  max-width: 100%;
+}
+
+/* Username safe for long text */
+.username {
+  font-size: 0.85rem;
+  color: #64748b;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Name input */
+.nameEdit {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  outline: none;
+  max-width: 100%;
+}
+
+/* ================== MOBILE FIX ================== */
+@media (max-width: 600px) {
+  .username {
+    font-size: 0.8rem;
+  }
+
+  .nameEdit {
+    font-size: 1.3rem;
+  }
+}

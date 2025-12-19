@@ -170,20 +170,22 @@ export default function ProfilePage() {
           <div className={styles.profileContainer_details}>
             <div className={styles.profileFlex}>
               <div className={styles.leftSection}>
-                <div style={{ display: "flex", gap: "1.2rem" }}>
-                  <input
-                    className={styles.nameEdit}
-                    type="text"
-                    value={profile.userId.name}
-                    onChange={(e) => {
-                      setProfile({
-                        ...profile,
-                        userId: { ...profile.userId, name: e.target.value },
-                      });
-                    }}
-                  />
-                  <p>@{profile.userId.username}</p>
-                </div>
+                <div className={styles.nameBlock}>
+  <p className={styles.username}>@{profile.userId.username}</p>
+
+  <input
+    className={styles.nameEdit}
+    type="text"
+    value={profile.userId.name}
+    onChange={(e) => {
+      setProfile({
+        ...profile,
+        userId: { ...profile.userId, name: e.target.value },
+      });
+    }}
+  />
+</div>
+
 
                 <textarea
                   className={styles.bioTextarea}
