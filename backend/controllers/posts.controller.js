@@ -177,13 +177,13 @@ export const increments_likes = async (req, res) => {
     const alreadyLiked = post.likedBy.includes(user._id);
 
     if (alreadyLiked) {
-      // 🔁 UNLIKE
+      //  UNLIKE
       post.likes -= 1;
       post.likedBy = post.likedBy.filter(
         (id) => id.toString() !== user._id.toString()
       );
     } else {
-      // ❤️ LIKE
+      //  LIKE
       post.likes += 1;
       post.likedBy.push(user._id);
     }

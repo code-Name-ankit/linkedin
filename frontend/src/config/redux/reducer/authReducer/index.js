@@ -59,11 +59,11 @@ const authSlice = createSlice({
         state.isSuccess = true;
         state.loggedIn = true;
 
-        // action.payload expected { token, user, message }
-        state.token = action.payload?.token ?? state.token;
-        state.user = action.payload?.user ?? state.user;
-        state.message = action.payload?.message ?? "Login successful";
+        state.token = action.payload?.token;
+        state.user = action.payload?.user;
+        state.message = action.payload?.message || "Login successful";
       })
+
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
@@ -115,8 +115,8 @@ const authSlice = createSlice({
         state.all_users = action.payload?.profiles ?? [];
       })
       .addCase(getConnectionsRequest.fulfilled, (state, action) => {
-  state.connections = action.payload || [];
-})
+        state.connections = action.payload || [];
+      })
       .addCase(getConnectionsRequest.rejected, (state, action) => {
         state.message = action.payload;
       })

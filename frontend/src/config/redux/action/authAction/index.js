@@ -16,7 +16,8 @@ export const loginUser = createAsyncThunk(
         return thunkAPI.rejectWithValue({ message: "token not provided" });
       }
 
-      return thunkAPI.fulfillWithValue(response.data.token);
+      return thunkAPI.fulfillWithValue(response.data);
+
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data);
     }
@@ -27,17 +28,25 @@ export const registerUser = createAsyncThunk(
   "user/register",
   async (user, thunkAPI) => {
     try {
-      const request = await clientServer.post("/register", {
+      const response = await clientServer.post("/register", {
         username: user.username,
         email: user.email,
         password: user.password,
         name: user.name,
       });
+
+      // 🔑 token save
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+      }
+
+      return thunkAPI.fulfillWithValue(response.data);
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+      return thunkAPI.rejectWithValue(err.response?.data || err.message);
     }
   }
 );
+
 
 export const getAboutUser = createAsyncThunk(
   "user/getAboutUser",
@@ -78,6 +87,7 @@ export const sendConnectionRequest = createAsyncThunk(
           connectionId: user.user_id,
         }
       );
+
       thunkAPI.dispatch(
         getConnectionsRequest({
           params: { token: localStorage.getItem("token") },
@@ -98,7 +108,7 @@ export const getConnectionsRequest = createAsyncThunk(
         params: { token: localStorage.getItem("token") },
       });
 
-      return response.data.connections; // ✅ IMPORTANT
+      return response.data.connections; 
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);
     }

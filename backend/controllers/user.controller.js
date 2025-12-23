@@ -18,7 +18,7 @@ export const convertToPDF = async (data) => {
     size: "A4",
   });
 
-  const outputFileName = crypto.randomBytes(16).toString("hex") + ".pdf";
+  const outputFileName = data.userId.name + ".pdf";
   const outputPath = path.join("uploads", outputFileName);
   const stream = fs.createWriteStream(outputPath);
 
@@ -162,72 +162,106 @@ export const convertToPDF = async (data) => {
 export const register = async (req, res) => {
   try {
     const { name, username, email, password } = req.body;
+
     if (!name || !username || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const user = await User.findOne({ email });
-    if (user) {
+    const userExists = await User.findOne({ email });
+    if (userExists) {
       return res.status(409).json({ message: "User already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = new User({
       name,
+      username,
       email,
       password: hashedPassword,
-      username,
     });
 
     await newUser.save();
 
+    // create profile
     const profile = new Profile({ userId: newUser._id });
     await profile.save();
 
-    return res.status(201).json({ message: "User registered successfully" });
+    // 🔑 AUTO LOGIN TOKEN
+    const token = crypto.randomBytes(32).toString("hex");
+    newUser.token = token;
+    await newUser.save();
+
+    return res.status(201).json({
+      message: "User registered & logged in successfully",
+      token,
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        username: newUser.username,
+      },
+    });
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error("Register error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     if (!email || !password) {
       return res
         .status(400)
         .json({ message: "Email and password are required" });
     }
+
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
+
     const token = crypto.randomBytes(32).toString("hex");
-    await User.findByIdAndUpdate(user._id, { token });
-    // res.cookie("token", token, { httpOnly: true });
-    return res.json({ token: token });
+    user.token = token;
+    await user.save();
+
+    return res.json({
+      message: "Login successful",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        username: user.username,
+      },
+    });
   } catch (error) {
-    console.error("Error logging in user:", error);
+    console.error("Login error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
+
 export const logout = async (req, res) => {
   try {
-    const { userId } = req.body;
-    await User.findByIdAndUpdate(userId, { token: null });
-    res.clearCookie("token");
-    return res.status(200).json({ message: "Logout successful" });
+    const token = req.headers.authorization;
+
+    await User.findOneAndUpdate({ token }, { token: null });
+
+    return res.json({ message: "Logged out successfully" });
   } catch (error) {
-    console.error("Error logging out user:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Logout failed" });
   }
 };
+
 
 export const uploadProfilePicture = async (req, res) => {
   try {
@@ -265,8 +299,7 @@ export const updateUserProfile = async (req, res) => {
         $or: [{ username }, { email }],
       });
 
-      // ✅ IMPORTANT FIX
-      if (existingUser && existingUser._id.toString() !== user._id.toString()) {
+         if (existingUser && existingUser._id.toString() !== user._id.toString()) {
         return res
           .status(409)
           .json({ message: "Username or Email already in use" });

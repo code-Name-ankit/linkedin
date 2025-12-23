@@ -133,7 +133,8 @@ export default function Dashboard() {
                           <p style={{ fontWeight: "bold " }}>
                             {post?.userId?.name}
                           </p>
-                          {post.userId._id === authState.user.userId._id && (
+                          {post?.userId?._id ===
+                            authState?.user?.userId?._id && (
                             <div
                               onClick={async () => {
                                 await dispatch(deletePost(post._id));

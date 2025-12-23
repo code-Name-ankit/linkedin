@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import serverless from "serverless-http";
 
 import postsRouter from "./routes/posts.routes.js";
 import userRouter from "./routes/user.routes.js";
@@ -16,23 +17,30 @@ app.use(postsRouter);
 app.use(userRouter);
 app.use("/uploads", express.static("uploads"));
 
+/* ================= MONGODB CONNECTION ================= */
+let isConnected = false;
 
-const PORT = process.env.PORT;
-const url = process.env.MONGODB_URI;
+const connectDB = async () => {
+  if (isConnected) return;
 
-mongoose
-  .connect(url)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = true;
+    console.log("MongoDB Connected");
+  } catch (err) {
+    console.error("MongoDB Error:", err);
+  }
+};
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
 });
-// app.get("/", (req, res) => {
-//   res.send("Hello from the backend server!");
-// });
 
+/* ================= TEST ROUTE ================= */
+app.get("/", (req, res) => {
+  res.json({ message: "Lambda backend running 🚀" });
+});
+
+/* ================= EXPORT FOR LAMBDA ================= */
+export const handler = serverless(app);
